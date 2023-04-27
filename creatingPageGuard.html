@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOT FACTORY: Guard Bot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="head">Guard Bot</h1>
+    <h3 class="subHead">start creating your robot...</h3>
+
+    <div class="createBot">
+        <input type="text" placeholder="robot name:" class="aName">
+        <input type="text" placeholder="person that needs a Guard:" class="aJob">
+        <input type="text" placeholder="robot img url:" class="aImage">
+        <br>    
+        <button onclick="createBot()" id="createBotButton">Create Robot</button>
+    </div>
+
+    <div class="profile">
+        <div class="bImageGuard"></div>
+        <div class="txt">
+            <h2 class="bNameGuard"></h2>
+            <p class="bJobGuard"></p>
+        </div>
+    </div>
+
+    <script src="robotGuard.js"></script>
+</body>
+</html>
