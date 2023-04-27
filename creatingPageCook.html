@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROBOT FACTORY: Cooking Bot</title>
+    <title>ROBOT FACTORY: Guard Bot</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,20 +12,14 @@
     <h3 class="subHead">start creating your robot...</h3>
 
     <div class="createBot">
-        <input type="text" placeholder="robot name:" class="aName">
-        <input type="text" placeholder="person that needs a cook:" class="aJob">
-        <input type="text" placeholder="robot img url:" class="aImage">
+        <input type="text" placeholder="robot name:" class="aNameC">
+        <input type="text" placeholder="person that needs a personal cook:" class="aJobC">
+        <input type="text" placeholder="robot img url:" class="aImageC">
         <br>    
         <button onclick="createBot()" id="createBotButton">Create Robot</button>
     </div>
 
-    <div class="profile">
-        <div class="bImageCook"></div>
-        <div class="txt">
-            <h2 class="bNameCook"></h2>
-            <p class="bJobCook"></p>
-        </div>
-    </div>
+    <div class="profile"></div>
 
     <script src="robotCook.js"></script>
 </body>

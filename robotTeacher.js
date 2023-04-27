@@ -1,7 +1,6 @@
-const aNameTeach = localStorage.getItem(`aName`);
-const aJobTeach = localStorage.getItem(`aJob`);
-const aImageTeach = localStorage.getItem(`aImageTeach`);
-// document.querySelector(`.aNameTeach`).innerText = aNameTeach;
+const aNameTeach = localStorage.getItem(`aNameT`);
+const aJobTeach = localStorage.getItem(`aJobT`);
+const aImageTeach = localStorage.getItem(`aImageT`);
 
 
 // Create class for Teacher  Robot (lesson9)
@@ -23,9 +22,9 @@ function createBot() {
   console.log('creating robot...')
   document.querySelector('.profile').innerHTML = '';
 
-  const aNameTeach = document.querySelector(`.aName`).value;
-  const aJobTeach = document.querySelector(`.aJob`).value;
-  const aImageTeach = document.querySelector(`.aImage`).value;
+  const aNameTeach = document.querySelector(`.aNameT`).value;
+  const aJobTeach = document.querySelector(`.aJobT`).value;
+  const aImageTeach = document.querySelector(`.aImageT`).value;
   const teacher = new Teacher(aNameTeach, aJobTeach, aImageTeach);
   console.log('created robot...',  teacher)
 
@@ -42,7 +41,7 @@ function createBot() {
     <img src='${element.image}'/>
     <div class="txt">
         <h2 class="">${element.name}</h2>
-        <p class="">${element.job}</p>
+        <p class="">${element.name}'s job is to teach ${element.job}. </p>
     </div>`;
   });
 

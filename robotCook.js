@@ -1,20 +1,52 @@
-const aNameCook = localStorage.getItem(`aName`)
-const aJobCook = localStorage.getItem(`aJob`)
-const aImageCook = localStorage.getItem(`aImage`)
-document.querySelector(`.bNameCook`).innerText = aNameCook
-document.querySelector(`.bJobCook`).innerText = `${aNameCook} the bot cook's job is to make food for ${aJobCook}.`
-document.querySelector(`.bImageCook`).innerHTML = `<img id="showRobotImage" src='${aImageCook}'>`
+const aNameCook = localStorage.getItem(`aNameC`);
+const aJobCook = localStorage.getItem(`aJobC`);
+const aImageCook = localStorage.getItem(`aImageC`);
+
+
+// Create class for Cook  Robot (lesson9)
+// Refactor createBot() to make  object from class (lesson9/10)
+// push  to array for cook robots (lesson10)
+// save to localstorage (lesson11)
+
+class Cook {
+  constructor(name, job, image) {
+    this.name = name;
+    this.job = job;
+    this.image = image;
+  }
+}
+
+const cookArr = [];
 
 function createBot() {
-    const aNameCook = document.querySelector(`.aName`).value
-    const aJobCook = document.querySelector(`.aJob`).value
-    const aImageCook = document.querySelector(`.aImage`).value
-    
-    localStorage.setItem(`aName`, aNameCook)
-    localStorage.setItem(`aJob`, aJobCook)
-    localStorage.setItem(`aImage`, aImageCook)
+  console.log('creating robot...')
+  document.querySelector('.profile').innerHTML = '';
 
-    document.querySelector(`.bName`).innerText = aNameCook
-    document.querySelector(`.bJob`).innerText = aJobCook
-    document.querySelector(`.bImage`).innerHTML = aImageCook
+  const aNameCook = document.querySelector(`.aNameC`).value;
+  const aJobCook = document.querySelector(`.aJobC`).value;
+  const aImageCook = document.querySelector(`.aImageC`).value;
+  const cook = new Cook(aNameCook, aJobCook, aImageCook);
+  console.log('created robot...', cook)
+
+  cookArr.push(cook);
+  console.log('added to array...', cookArr)
+
+  const strCookArr = JSON.stringify(cookArr);
+  localStorage.setItem("cookArr", strCookArr);
+  console.log('cookArr as string...', strCookArr)
+
+  cookArr.forEach(function (element) {
+    console.log('current robot obj:', element)
+    document.querySelector(`.profile`).innerHTML += `
+    <img src='${element.image}'/>
+    <div class="txt">
+        <h2 class="">${element.name}</h2>
+        <p class="">${element.name} is ${element.job}'s personal cook.</p>
+    </div>`;
+  });
+
+  const cookStr= JSON.stringify(cookArr)
+  localStorage.setItem(`cookArr`, cookStr)
+  const gotCookStr = localStorage.getItem(`cookArr`)
+  const convertedCook = JSON.parse(gotCookStr)
 }

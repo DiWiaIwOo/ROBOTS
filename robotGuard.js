@@ -1,20 +1,52 @@
-const aNameGuard = localStorage.getItem(`aName`)
-const aJobGuard = localStorage.getItem(`aJob`)
-const aImageGuard = localStorage.getItem(`aImage`)
-document.querySelector(`.bNameGuard`).innerText = aNameGuard
-document.querySelector(`.bJobGuard`).innerText = `${aNameGuard} the bot guard's job is to protect ${aJobGuard}.`
-document.querySelector(`.bImageGuard`).innerHTML = `<img id="showRobotImage" src='${aImageGuard}'>`
+const aNameGuard = localStorage.getItem(`aNameG`);
+const aJobGuard = localStorage.getItem(`aJobG`);
+const aImageGuard = localStorage.getItem(`aImageG`);
+
+
+// Create class for Guard  Robot (lesson9)
+// Refactor createBot() to make  object from class (lesson9/10)
+// push  to array for guard robots (lesson10)
+// save to localstorage (lesson11)
+
+class Guard {
+  constructor(name, job, image) {
+    this.name = name;
+    this.job = job;
+    this.image = image;
+  }
+}
+
+const guardArr = [];
 
 function createBot() {
-    const aNameGuard = document.querySelector(`.aName`).value
-    const aJobGuard = document.querySelector(`.aJob`).value
-    const aImageGuard = document.querySelector(`.aImage`).value
-    
-    localStorage.setItem(`aName`, aNameGuard)
-    localStorage.setItem(`aJob`, aJobGuard)
-    localStorage.setItem(`aImage`, aImageGuard)
+  console.log('creating robot...')
+  document.querySelector('.profile').innerHTML = '';
 
-    document.querySelector(`.bName`).innerText = aNameGuard
-    document.querySelector(`.bJob`).innerText = aJobGuard
-    document.querySelector(`.bImage`).innerHTML = aImageGuard
+  const aNameGuard = document.querySelector(`.aNameG`).value;
+  const aJobGuard = document.querySelector(`.aJobG`).value;
+  const aImageGuard = document.querySelector(`.aImageG`).value;
+  const guard = new Guard(aNameGuard, aJobGuard, aImageGuard);
+  console.log('created robot...', guard)
+
+  guardArr.push(guard);
+  console.log('added to array...', guardArr)
+
+  const strGuardArr = JSON.stringify(guardArr);
+  localStorage.setItem("guardArr", strGuardArr);
+  console.log('guardArr as string...', strGuardArr)
+
+  guardArr.forEach(function (element) {
+    console.log('current robot obj:', element)
+    document.querySelector(`.profile`).innerHTML += `
+    <img src='${element.image}'/>
+    <div class="txt">
+        <h2 class="">${element.name}</h2>
+        <p class="">${element.job} is ${element.name}'s trusty guard.</p>
+    </div>`;
+  });
+
+  const guardStr= JSON.stringify(guardArr)
+  localStorage.setItem(`guardArr`, guardStr)
+  const gotGuardStr = localStorage.getItem(`guardArr`)
+  const convertedGuard = JSON.parse(gotGuardStr)
 }
