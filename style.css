@@ -61,7 +61,16 @@ input {
     margin: 1em;
     width: 40vw;
     height: 2.5em;
-    background-color: whitesmoke;
+    background-color: rgb(129, 255, 107);
+}
+#destroyBotButton {
+    margin: 1em;
+    width: 20vw;
+    height: 2.5em;
+    background-color: rgb(240, 103, 103);
+}
+#deadBot {
+    width: 40vw;
 }
 
 .profile {

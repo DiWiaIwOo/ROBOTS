@@ -50,3 +50,11 @@ function createBot() {
   const gotCookStr = localStorage.getItem(`cookArr`)
   const convertedCook = JSON.parse(gotCookStr)
 }
+
+let killBot = document.getElementById("deadBot").value
+
+function destroyBotButton() {
+  const destroyBot = cookArr.filter(function(element) {
+    return element !== 'killBot'
+  })
+}
